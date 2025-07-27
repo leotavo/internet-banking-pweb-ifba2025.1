@@ -91,11 +91,12 @@ O sistema permite:
 
 | Documento | Descrição |
 |-----------|-----------|
-| [📄 Especificação do Sistema](docs/Especificação do Sistema de Internet Banking.pdf) | Regras de negócio e requisitos funcionais |
-| [📘 Apostila Spring Boot](docs/Spring Boot.pdf) | Base para o desenvolvimento do backend |
-| [📙 Apostila React](docs/React JS.pdf) | Base para desenvolvimento do frontend |
-| [📗 Microserviços com Spring Boot](docs/Microserviços com  Spring Boot.pdf) | Implementação do serviço de e-mail |
+| [📄 Especificação do Sistema](docs/Especifica%C3%A7%C3%A3o%20do%20Sistema%20de%20Internet%20Banking.pdf) | Regras de negócio e requisitos funcionais |
+| [📘 Apostila Spring Boot](docs/Spring%20Boot.pdf) | Base para o desenvolvimento do backend |
+| [📙 Apostila React](docs/React%20JS.pdf) | Base para desenvolvimento do frontend |
+| [📗 Microserviços com Spring Boot](docs/Microservi%C3%A7os%20com%20%20Spring%20Boot.pdf) | Implementação do serviço de e-mail |
 | [📑 Etapas divididas para backend/email](docs/Etapas_Backend_EmailService.pdf) | Checklist com divisão por pessoa |
+
 
 ---
 
