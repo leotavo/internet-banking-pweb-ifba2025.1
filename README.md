@@ -87,13 +87,13 @@ O sistema permite:
 
 ## 📚 Documentação
 
-| Documento                                    | Descrição                                 |
-|---------------------------------------------|-------------------------------------------|
-| [📄 Especificação do Sistema](docs/Especificacao_Sistema_Internet_Banking.pdf) | Regras de negócio e requisitos funcionais |
-| [📘 Apostila Spring Boot](docs/Spring_Boot_Apostila.pdf)                      | Base para o desenvolvimento do backend    |
-| [📙 Apostila React](docs/React_JS_Apostila.pdf)                              | Base para desenvolvimento do frontend     |
-| [📗 Microserviços com Spring Boot](docs/Microservicos_Spring_Boot.pdf)       | Implementação do serviço de e-mail        |
-| [📑 Etapas divididas para backend/email](docs/Etapas_Backend_EmailService.pdf) | Checklist com divisão por pessoa          |
+| Documento | Descrição |
+|-----------|-----------|
+| [📄 Especificação do Sistema](docs/Especifica%C3%A7%C3%A3o%20do%20Sistema%20de%20Internet%20Banking.pdf) | Regras de negócio e requisitos funcionais |
+| [📘 Apostila Spring Boot](docs/Spring%20Boot%20(1).pdf) | Base para o desenvolvimento do backend |
+| [📙 Apostila React](docs/React%20JS.pdf) | Base para desenvolvimento do frontend |
+| [📗 Microserviços com Spring Boot](docs/Microservi%C3%A7os%20com%20%20Spring%20Boot%20(1).pdf) | Implementação do serviço de e-mail |
+| [📑 Etapas divididas para backend/email](docs/Etapas_Backend_EmailService.pdf) | Checklist com divisão por pessoa |
 
 ---
 
@@ -109,8 +109,17 @@ O sistema permite:
 
 ## 🤝 Autores
 
-- [Pessoa 1 Nome] – Backend principal
-- [Pessoa 2 Nome] – Microserviço e frontend
+- Leonardo Trindade de Jesus - leotavo@gmail.com
+- Marinaldo - ti.marinaldo@gmail.com
+
+---
+
+## 🏫 Instituição, Disciplina e Semestre
+
+- **IFBA - Instituto Federal de Educação, Ciência e Tecnologia da Bahia - Campus Salvador**
+- **Disciplina**: INF012 - Programação Web
+- **Semestre**: 2025.1
+- **Professor**: Manoel Neto
 
 ---
 
