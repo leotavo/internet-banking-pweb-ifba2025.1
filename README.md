@@ -1,18 +1,119 @@
-# Internet Banking App
+# 🏦 Internet Banking App
 
-Aplicação fullstack com Spring Boot, React e microserviço de e-mail.
+Aplicação **fullstack** de Internet Banking, construída com **Spring Boot**, **React** e um **microserviço de envio de e-mails**.
 
-## Estrutura
-- `/backend/bank-api`: API principal (usuários, contas, operações)
-- `/email-service`: Microserviço de envio de e-mail
-- `/frontend/react-app`: Interface do usuário em React
+O sistema permite:
+- Cadastro de usuários e criação automática de conta corrente
+- Operações bancárias: depósito, saque, pagamento
+- Consulta de extrato com filtros
+- Notificações por e-mail em cada transação
 
-## Como rodar
-1. PostgreSQL rodando localmente
-2. Iniciar o `email-service`
-3. Iniciar o `bank-api`
-4. Rodar `frontend/react-app` com `npm run dev`
+---
 
-## Observações
-- A API se comunica com o serviço de e-mail via HTTP POST.
-- O frontend usa Axios para consumir o backend.
+## 🧱 Estrutura do Projeto
+
+```
+├── backend/
+│   └── bank-api/               # (a ser criado)
+├── email-service/             # (a ser criado)
+├── frontend/
+│   └── react-app/             # (a ser criado)
+├── docs/
+│   ├── Especificação do Sistema de Internet Banking.pdf
+│   ├── Etapas_Backend_EmailService.pdf
+│   ├── Microserviços com Spring Boot (1).pdf
+│   ├── React JS.pdf
+│   └── Spring Boot (1).pdf
+├── README.md
+└── .gitignore
+```
+
+---
+
+## 🚀 Como Executar Localmente
+
+### 🔧 Pré-requisitos
+- Java 17+
+- Node.js (recomendado: versão LTS)
+- PostgreSQL (rodando localmente com duas bases: `banco`, `bancoemail`)
+
+### ▶️ Etapas
+
+1. **Configure o banco de dados**
+   - Crie os bancos `banco` e `bancoemail`
+   - Atualize usuário/senha se necessário nos arquivos `application.properties`
+
+2. **Rode o microserviço de e-mail**
+   ```bash
+   cd email-service
+   ./mvnw spring-boot:run
+   ```
+
+3. **Rode a API principal**
+   ```bash
+   cd backend/bank-api
+   ./mvnw spring-boot:run
+   ```
+
+4. **Rode o frontend**
+   ```bash
+   cd frontend/react-app
+   npm install
+   npm run dev
+   ```
+
+---
+
+## 📡 Comunicação entre serviços
+
+- A API principal chama o `email-service` via `POST http://localhost:8081/email/send`
+- O frontend consome o backend usando **Axios**, enviando/recebendo dados no formato JSON.
+
+---
+
+## 🧪 Exemplos de Uso
+
+### Cadastro de usuário (POST `/usuarios`)
+- Cria o usuário, a conta automaticamente e dispara e-mail de boas-vindas
+
+### Operações bancárias (POST `/operacoes`)
+- Tipos: `DEPOSITO`, `SAQUE`, `PAGAMENTO`
+- Regras de validação: valor > 0, saldo suficiente, descrição obrigatória no pagamento
+
+### Extrato (GET `/operacoes`)
+- Permite filtrar por tipo e intervalo de datas
+
+---
+
+## 📚 Documentação
+
+| Documento                                    | Descrição                                 |
+|---------------------------------------------|-------------------------------------------|
+| [📄 Especificação do Sistema](docs/Especificacao_Sistema_Internet_Banking.pdf) | Regras de negócio e requisitos funcionais |
+| [📘 Apostila Spring Boot](docs/Spring_Boot_Apostila.pdf)                      | Base para o desenvolvimento do backend    |
+| [📙 Apostila React](docs/React_JS_Apostila.pdf)                              | Base para desenvolvimento do frontend     |
+| [📗 Microserviços com Spring Boot](docs/Microservicos_Spring_Boot.pdf)       | Implementação do serviço de e-mail        |
+| [📑 Etapas divididas para backend/email](docs/Etapas_Backend_EmailService.pdf) | Checklist com divisão por pessoa          |
+
+---
+
+## ✅ Status do Projeto
+
+- [ ] Backend funcional com JPA e validação
+- [ ] Microserviço de e-mail testado via Postman
+- [ ] Frontend React com páginas conectadas à API
+- [ ] Integração com autenticação (em aberto)
+- [ ] Deploy em produção (em aberto)
+
+---
+
+## 🤝 Autores
+
+- [Pessoa 1 Nome] – Backend principal
+- [Pessoa 2 Nome] – Microserviço e frontend
+
+---
+
+## 🛡️ Licença
+
+Este projeto é acadêmico, sem fins lucrativos. Direitos reservados aos autores e instituição de ensino.
