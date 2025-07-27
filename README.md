@@ -19,7 +19,7 @@ O sistema permite:
 ├── frontend/
 │   └── react-app/             # (a ser criado)
 ├── gateway/                   # API Gateway (recomendado)
-├── eurekaserver/              # Service Discovery com Eureka
+├── eureka-server/              # Service Discovery com Eureka
 ├── docs/
 │   ├── Especificação do Sistema de Internet Banking.pdf
 │   ├── Etapas_Backend_EmailService.pdf
