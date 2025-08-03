@@ -1,38 +1,43 @@
 package com.banco.bankapi.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity(name = "operacoes")
-@Getter @Setter
-@NoArgsConstructor @AllArgsConstructor
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Operacao {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull(message = "O tipo da operação é obrigatório")
+    @NotNull(message = "Valor é obrigatório")
+    @Positive(message = "Valor deve ser positivo")
+    private BigDecimal valor;
+
+    @NotNull(message = "Tipo de operação é obrigatório")
     @Enumerated(EnumType.STRING)
     private TipoOperacao tipo;
 
-    @NotNull(message = "O valor é obrigatório")
-    @DecimalMin(value = "0.01", message = "O valor deve ser maior que zero")
-    private BigDecimal valor;
-
+    @Size(max = 255, message = "Descrição deve ter no máximo 255 caracteres")
     private String descricao;
 
-    private LocalDateTime dataHora = LocalDateTime.now();
+    private LocalDateTime data = LocalDateTime.now();
 
-    @ManyToOne(optional = false)
+    @NotNull(message = "Conta associada é obrigatória")
+    @ManyToOne
     @JoinColumns({
         @JoinColumn(name = "agencia", referencedColumnName = "agencia"),
         @JoinColumn(name = "numero", referencedColumnName = "numero")
     })
     private Conta conta;
 }
-
