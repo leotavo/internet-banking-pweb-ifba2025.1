@@ -13,41 +13,40 @@ import lombok.Setter;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-@Entity(name = "operacoes")
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+@Entity
+@Table(name = "operacoes")
+@Getter @Setter
+@NoArgsConstructor @AllArgsConstructor
 public class Operacao {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull(message = "Valor é obrigatório")
-    @Positive(message = "Valor deve ser positivo")
+    @NotNull @Positive
+    @Column(nullable = false)
     private BigDecimal valor;
 
-    @NotNull(message = "Tipo de operação é obrigatório")
+    @NotNull
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 20)
     private TipoOperacao tipo;
 
-    @Size(max = 255, message = "Descrição deve ter no máximo 255 caracteres")
+    @Size(max = 255)
     private String descricao;
 
-    @NotNull(message = "Data da operação é obrigatória")
+    @NotNull
+    @Column(nullable = false)
     private LocalDateTime data = LocalDateTime.now();
 
-    @NotNull(message = "Conta associada é obrigatória")
-    @ManyToOne
+    @NotNull
+    @ManyToOne(optional = false)
     @JoinColumns({
-        @JoinColumn(name = "agencia", referencedColumnName = "agencia"),
-        @JoinColumn(name = "numero", referencedColumnName = "numero")
+        @JoinColumn(name = "agencia", referencedColumnName = "agencia", nullable = false),
+        @JoinColumn(name = "numero",  referencedColumnName = "numero",  nullable = false)
     })
     private Conta conta;
 
-    
-    // Validação de regra de negócio
     @AssertTrue(message = "Descrição é obrigatória para operações do tipo PAGAMENTO")
     public boolean isDescricaoValida() {
         return tipo != TipoOperacao.PAGAMENTO || (descricao != null && !descricao.isBlank());

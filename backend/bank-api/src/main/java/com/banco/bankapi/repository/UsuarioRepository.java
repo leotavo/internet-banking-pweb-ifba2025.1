@@ -1,5 +1,6 @@
 package com.banco.bankapi.repository;
 
-public interface UsuarioRepository {
+import com.banco.bankapi.model.Usuario;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-}
+public interface UsuarioRepository extends JpaRepository<Usuario, Long> {}
