@@ -1,18 +1,19 @@
+// ============================
+// UsuarioDTO.java (resposta)
+// ============================
 package com.banco.bankapi.dto;
 
-public class UsuarioDTO {
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class UsuarioDTO {
     private Long id;
     private String nome;
+    private String cpf;
     private String email;
-
-    public UsuarioDTO() {}
-
-    public UsuarioDTO(Long id, String nome, String email) {
-        this.id = id;
-        this.nome = nome;
-        this.email = email;
-    }
-
-    // Getters e setters omitidos para brevidade
+    private String dataCadastro;
 }

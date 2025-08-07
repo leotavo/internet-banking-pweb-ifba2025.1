@@ -40,7 +40,7 @@ public class Usuario {
 
     @NotBlank(message = "Senha é obrigatória")
     @Size(min = 60, max = 60, message = "Senha deve conter o hash (ex: Bcrypt de 60 caracteres)")
-    private String senha;
+    private String senhaHash;
 
     @NotNull
     @PastOrPresent
