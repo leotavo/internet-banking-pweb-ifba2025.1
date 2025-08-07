@@ -1,0 +1,9 @@
+com\banco\bankapi\model\Usuario.class
+com\banco\bankapi\repository\UsuarioRepository.class
+com\banco\bankapi\repository\ContaRepository.class
+com\banco\bankapi\BankApiApplication.class
+com\banco\bankapi\model\Operacao.class
+com\banco\bankapi\model\Conta.class
+com\banco\bankapi\model\ContaId.class
+com\banco\bankapi\model\TipoOperacao.class
+com\banco\bankapi\repository\OperacaoRepository.class
