@@ -1,10 +1,14 @@
 package com.banco.bankapi.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.AssertTrue;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -31,6 +35,7 @@ public class Operacao {
     @Size(max = 255, message = "Descrição deve ter no máximo 255 caracteres")
     private String descricao;
 
+    @NotNull(message = "Data da operação é obrigatória")
     private LocalDateTime data = LocalDateTime.now();
 
     @NotNull(message = "Conta associada é obrigatória")
@@ -40,4 +45,11 @@ public class Operacao {
         @JoinColumn(name = "numero", referencedColumnName = "numero")
     })
     private Conta conta;
+
+    
+    // Validação de regra de negócio
+    @AssertTrue(message = "Descrição é obrigatória para operações do tipo PAGAMENTO")
+    public boolean isDescricaoValida() {
+        return tipo != TipoOperacao.PAGAMENTO || (descricao != null && !descricao.isBlank());
+    }
 }
